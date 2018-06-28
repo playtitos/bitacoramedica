@@ -1,0 +1,64 @@
+<!doctype html>
+<html ng-app="login">
+    <head>
+        <title>Iniciar Sesión</title>
+        <link   rel="shortcut icon" href="../../img/icon.png">
+        <meta   http-equiv="Content-type" content="text/html; charset=utf-8" charset="UTF-8">
+        <meta   name="viewport"                              content="width=device-width, initial-scale=1">
+        <meta   name="author"                                content="Ing. Luis Gallegos Estrada">
+        <link   href="../../css/bootstrap.min.css"           rel="stylesheet">
+        <link   href="../css/login.css"                      rel="stylesheet"> 
+    </head>
+
+    <body ng-controller="cLogin">
+
+        <div id="container">
+            <div>
+                <img src="../../img/colegio.png" alt="Cargando" class="imagen-colegio">
+            </div>
+
+            <div class="separacion"></div>
+
+            <div id="menu" class="datos-entrar">
+                <div id="usuario_nombre">
+                    <input type="text" class="form-control {{error_name}}" ng-enter="entrar();" ng-model="user_name" placeholder="Usuario"> 
+                </div>
+
+                <div class="separacion"></div>
+
+                <div id="contrasena_nombre">
+                    <input type="password" class="form-control {{error_pass}}" ng-enter="entrar();" ng-model="user_pass" placeholder="Contraseña"> 
+                </div>
+
+                <div class="separacion"></div>
+
+                <div id="login">
+                    <button class="b_entrar btn btn-default" ng-click="entrar()">Entrar</button>
+                </div>
+            </div>
+
+            <div class="separacion"></div>
+
+            <div id="alertas" class="alertas">
+                <div id="error_secc" class="alert alert-danger" role="alert" ng-show="error_login">
+                    <span class="glyphicon glyphicon-warning-sign espacio" aria-hidden="true"></span>{{mensaje_error}}
+                </div>
+
+                <div id="exito_secc" class="alert alert-success" role="alert" ng-show="exito_login">
+                    <span class="glyphicon glyphicon-ok espacio" aria-hidden="true"></span>{{mensaje_exito}}
+                </div>
+
+                <div id="cargando_general" class="centrado" ng-show="cargando_general">
+                    <img src="../../img/loadingRing.gif" alt="Cargando">
+                </div>
+            </div>
+        </div>
+
+        <script src="../../js/jquery-2.1.4.js"                     type="text/javascript"></script>
+        <script src="../../js/angular.min.js"                      type="text/javascript"></script>
+        <script src="../../js/angular-ui-router.min.js"            type="text/javascript"></script>
+        <script src="../../js/bootstrap.min.js"                    type="text/javascript"></script>
+        <script src="../models/model_login.js"                     type="text/javascript"></script>
+        <script src="../controllers/login_controller.js"           type="text/javascript"></script>
+    </body>
+</html>

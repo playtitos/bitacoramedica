@@ -1,0 +1,34 @@
+<div id="confirma_modal">
+	<div id="cabecera" class="cabezal {{color_secc}}" >
+		<label class="nombre-modal">{{nombre_modal}}</label>
+	</div>
+	<div id="contenedor_modal">
+		<div id="contenido_modal" >
+			<label class="text-conf">{{mensaje_modal}}</label>
+		</div>
+		<div id="botones_modal" class="botones-conf">
+			<table class="table table-hover table-striped table-responsive margen-top">
+	            <thead>
+	                <tr class="headerDarkGrayLetterOrange fully">
+	                    <th class="cursor col-md-2">RFC</th>
+	                    <th class="cursor col-md-2">Nombre</th>
+	                    <th class="cursor col-md-2">Ap. Paterno</th>
+	                    <th class="cursor col-md-2">Ap. Materno</th>
+	                    <th class="cursor col-md-2">F. Nacimiento</th>
+	                    <th class="cursor col-md-2">F. Registro</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="usuario in usuarios" ng-click="sel_user(usuario);">
+	                    <td class="cursor col-md-2">{{usuario.rfc}}</td>
+	                    <td class="cursor col-md-2">{{usuario.nombre}}</td>
+	                    <td class="cursor col-md-2">{{usuario.ap_pat}}</td>
+	                    <td class="cursor col-md-2">{{usuario.ap_mat}}</td>
+	                    <td class="cursor col-md-2">{{usuario.nacimiento}}</td>
+	                    <td class="cursor col-md-2">{{usuario.fechaRegistro}}</td>
+	                </tr>    
+	            </tbody> 
+	        </table>
+		</div>
+	</div>
+</div>

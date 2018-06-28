@@ -1,0 +1,32 @@
+<div id="agrega_dir">
+	<div id="cabecera" class="cabezal {{color_secc}}">
+		<label class="nombre-modal">{{nombre_modal}}</label>
+	</div>
+
+	<div id="contenedor_modal">
+		<div id="alerta_error" class="alert alert-danger centrado" role="alert" ng-show="error_modal">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span >{{m_error_modal}}</span>
+		</div>
+		<div id="cuerpo_modal">
+			<div id="form_director" class="izq" style="margin-left: 20px;">
+				<label class="izq">Seleccione una fecha de consulta, para generar un reporte en PDF:</label><br><br>
+                <select id="fecha_usuario" 
+                            class="form-control izq completo {{error_fecha_rep}}" 
+                            ng-model="fecha" 
+                            ng-options="fecha.valor as fecha.valor for fecha in fechas_options" 
+                            ng-disabled="fecha_usuario"
+                            ng-enter="exportar_pdf(fecha)"
+                            ng-change="cambia_fechas_usuario(fecha)">
+                            <option class="option" value="">-- SELECCIONE --</option>
+                    </select>
+			</div>
+
+			<div id="busca_reg">
+				<button id="b_busca_reg" class="b-busca boton_index der {{color_secc}}" ng-click="exportar_pdf(fecha)" style="margin-top: 52px;">
+					<label class="glyphicon glyphicon-list-alt"> Generar </label>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

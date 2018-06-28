@@ -1,0 +1,597 @@
+<div class="container" ng-controller="sintomasController" >
+	<div id="form_sintomas" ng-init="botones_sintomas()">
+		<div id="instrucciones_sintomas">
+			<h2 class="{{c_letra}}  datos_head">SÍNTOMAS</h2>  
+	        <p>
+	            De los siguientes síntomas presentados por sistemas, indique cuál padece actualmente o padeció reciente a tres meses y escriba la frecuencia al final. <br><br>
+	        </p>
+		</div>
+
+		<div class="separa"></div>
+
+		<div id="seccion_sintomas">
+			                                          
+	        <div id="form_enfermedades_piel">
+	            <div class="izquierda">
+	                <label class="completo encabezado-label izquierda">PIEL Y MUCOSAS:</label> 
+	            </div>
+	                
+	            <div class="derecha">
+		            <div id="respuestas_check">
+		                <input  type="checkbox" 
+		                        name="acne_s"  
+		                        ng-model="acne_s"
+		                        id="acne_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="acne_s" class="derecha">Acné severo o leve.</label>
+
+		                <input  type="checkbox" 
+		                        name="salpullido_s"  
+		                        ng-model="salpullido_s"
+		                        id="salpullido_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="salpullido_s" class="derecha">Salpullido o urticaria en la piel.</label>
+
+		                <input  type="checkbox" 
+		                        name="psoriasis_s"  
+		                        ng-model="psoriasis_s"
+		                        id="psoriasis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="psoriasis_s" class="derecha">Psoriasis (enfermedad de la piel).</label>
+
+		                <input  type="checkbox" 
+		                        name="exceso_grasa_s"  
+		                        ng-model="exceso_grasa_s"
+		                        id="exceso_grasa_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="exceso_grasa_s" class="derecha">Exceso de grasa en piel o cuero cabelludo.</label>
+
+		                <input  type="checkbox" 
+		                        name="cicatrices_s"  
+		                        ng-model="cicatrices_s"
+		                        id="cicatrices_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="cicatrices_s" class="derecha">Dificultad en cicatrización de heridas.</label>
+
+		                <input  type="checkbox" 
+		                        name="sequedad_s"  
+		                        ng-model="sequedad_s"
+		                        id="sequedad_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="sequedad_s" class="derecha">Sequedad en piel o mucosa nasal.</label>
+
+		                <input  type="checkbox" 
+		                        name="mucosa_s"  
+		                        ng-model="mucosa_s"
+		                        id="mucosa_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="mucosa_s" class="derecha">Mucosa ocular o vaginal.</label>
+
+		                <input  type="checkbox" 
+		                        name="cabello_s"  
+		                        ng-model="cabello_s"
+		                        id="cabello_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="cabello_s" class="derecha">Pérdida excesiva de cabello.</label>
+
+		                <input  type="checkbox" 
+		                        name="envejecer_s"  
+		                        ng-model="envejecer_s"
+		                        id="envejecer_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="envejecer_s" class="derecha">Envejecimiento prematuro.</label>
+		            </div>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Descripción breve y frecuencia:</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_piel" ng-model="des_piel" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+	        </div>
+
+	        <div class="separa"></div>
+
+	       	<div id="form_enfermedades_nervios">
+	            <div class="izquierda">
+	                <label class="completo encabezado-label izquierda">SISTEMA NERVIOSO Y OTROS:</label> 
+	            </div>
+	                
+	            <div class="derecha">
+		            <div id="respuestas_check">
+		                <input  type="checkbox" 
+		                        name="ansiedad_s"  
+		                        ng-model="ansiedad_s"
+		                        id="ansiedad_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="ansiedad_s" class="derecha">Ansiedad.</label>
+
+		                <input  type="checkbox" 
+		                        name="wake_s"  
+		                        ng-model="wake_s"
+		                        id="wake_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="wake_s" class="derecha">Dificultad para levantarse.</label>
+
+		                <input  type="checkbox" 
+		                        name="estres_s"  
+		                        ng-model="estres_s"
+		                        id="estres_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="estres_s" class="derecha">Demasiado Estres.</label>
+
+		                <input  type="checkbox" 
+		                        name="fiebre_s"  
+		                        ng-model="fiebre_s"
+		                        id="fiebre_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="fiebre_s" class="derecha">Fiebre.</label>
+
+		                <input  type="checkbox" 
+		                        name="agita_s"  
+		                        ng-model="agita_s"
+		                        id="agita_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="agita_s" class="derecha">Agitación sin razón.</label>
+
+		                <input  type="checkbox" 
+		                        name="latidos_s"  
+		                        ng-model="latidos_s"
+		                        id="latidos_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="latidos_s" class="derecha">Latidos cárdiacos irregulares.</label>
+
+		                <input  type="checkbox" 
+		                        name="peso_s"  
+		                        ng-model="peso_s"
+		                        id="peso_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="peso_s" class="derecha">Cambios de peso.</label>
+
+		                <input  type="checkbox" 
+		                        name="malestar_s"  
+		                        ng-model="malestar_s"
+		                        id="malestar_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="malestar_s" class="derecha">Malestar general.</label>
+
+		                <input  type="checkbox" 
+		                        name="fatiga_s"  
+		                        ng-model="fatiga_s"
+		                        id="fatiga_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="fatiga_s" class="derecha">Fatiga.</label>
+
+		                <input  type="checkbox" 
+		                        name="cansancio_s"  
+		                        ng-model="cansancio_s"
+		                        id="cansancio_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="cansancio_s" class="derecha">Cansancio.</label>
+
+		                <input  type="checkbox" 
+		                        name="agotamiento_s"  
+		                        ng-model="agotamiento_s"
+		                        id="agotamiento_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="agotamiento_s" class="derecha">Agotamiento sin razón.</label>
+		                
+		                <input  type="checkbox" 
+		                        name="debilidad_s"  
+		                        ng-model="debilidad_s"
+		                        id="debilidad_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="debilidad_s" class="derecha">Debilidad.</label>
+
+		                <input  type="checkbox" 
+		                        name="rendimiento_s"  
+		                        ng-model="rendimiento_s"
+		                        id="rendimiento_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="rendimiento_s" class="derecha">Bajo rendimiento mental.</label>
+
+		                <input  type="checkbox" 
+		                        name="concentrar_s"  
+		                        ng-model="concentrar_s"
+		                        id="concentrar_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="concentrar_s" class="derecha">Dificultad para concentrarse.</label>
+
+		                <input  type="checkbox" 
+		                        name="hiperactividad_s"  
+		                        ng-model="hiperactividad_s"
+		                        id="hiperactividad_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="hiperactividad_s" class="derecha">Hiperactividad.</label>
+
+		                <input  type="checkbox" 
+		                        name="memoria_s"  
+		                        ng-model="memoria_s"
+		                        id="memoria_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="memoria_s" class="derecha">Pérdida de memoria.</label>
+
+		                <input  type="checkbox" 
+		                        name="apetito_s"  
+		                        ng-model="apetito_s"
+		                        id="apetito_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="apetito_s" class="derecha">Pérdida de apetito.</label>
+
+		                <input  type="checkbox" 
+		                        name="a_apetito_s"  
+		                        ng-model="a_apetito_s"
+		                        id="a_apetito_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="a_apetito_s" class="derecha">Aumento de apetito.</label>
+
+		                <input  type="checkbox" 
+		                        name="sudor_s"  
+		                        ng-model="sudor_s"
+		                        id="sudor_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="sudor_s" class="derecha">Sudoración nocturna.</label>
+
+		                <input  type="checkbox" 
+		                        name="animo_s"  
+		                        ng-model="animo_s"
+		                        id="animo_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="animo_s" class="derecha">Alteraciones en estado de ánimo. (Ejemplos: irritabilidad, enojo, sensiblilidad, tristeza repentina etc).</label>
+
+		                <input  type="checkbox" 
+		                        name="panico_s"  
+		                        ng-model="panico_s"
+		                        id="panico_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="panico_s" class="derecha">Ataques de pánico </label>
+
+		            </div>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Descripción breve y frecuencia:</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_nervio" ng-model="des_nervio" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+	        </div>
+		</div>
+
+		<div class="separa"></div>
+
+		<div id="form_enfermedades_pulmonar">
+	            <div class="izquierda">
+	                <label class="completo encabezado-label izquierda">SISTEMA PULMONAR:</label> 
+	            </div>
+	                
+	            <div class="derecha">
+		            <div id="respuestas_check">
+		                <input  type="checkbox" 
+		                        name="respirar_s"  
+		                        ng-model="respirar_s"
+		                        id="respirar_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="respirar_s" class="derecha">Dificultad para respirar.</label>
+
+		                <input  type="checkbox" 
+		                        name="jadeo_s"  
+		                        ng-model="jadeo_s"
+		                        id="jadeo_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="jadeo_s" class="derecha">Respiración jadeante.</label>
+
+		                <input  type="checkbox" 
+		                        name="asma_s"  
+		                        ng-model="asma_s"
+		                        id="asma_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="asma_s" class="derecha">Asma.</label>
+
+		                <input  type="checkbox" 
+		                        name="moco_s"  
+		                        ng-model="moco_s"
+		                        id="moco_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="moco_s" class="derecha">Exceso de moco.</label>
+
+		                <input  type="checkbox" 
+		                        name="constipada_s"  
+		                        ng-model="constipada_s"
+		                        id="constipada_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="constipada_s" class="derecha">Sensación de nariz constipada.</label>
+
+		                <input  type="checkbox" 
+		                        name="rinitis_s"  
+		                        ng-model="rinitis_s"
+		                        id="rinitis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="rinitis_s" class="derecha">Rinitis.</label>
+
+		                <input  type="checkbox" 
+		                        name="sinucitis_s"  
+		                        ng-model="sinucitis_s"
+		                        id="sinucitis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="sinucitis_s" class="derecha">Sinucitis.</label>
+
+		                <input  type="checkbox" 
+		                        name="bronquitis_s"  
+		                        ng-model="bronquitis_s"
+		                        id="bronquitis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="bronquitis_s" class="derecha">Bronquitis.</label>
+
+		                <input  type="checkbox" 
+		                        name="tos_s"  
+		                        ng-model="tos_s"
+		                        id="tos_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="tos_s" class="derecha">Tos frecuente.</label>
+
+		                <input  type="checkbox" 
+		                        name="gripa_s"  
+		                        ng-model="gripa_s"
+		                        id="gripa_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="gripa_s" class="derecha">Gripas frecuentes o duraderas.</label>
+
+		            </div>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Descripción breve y frecuencia:</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_pulmon" ng-model="des_pulmon" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+	        </div>
+		</div>
+
+		<div class="separa"></div>
+
+		<div id="form_enfermedades_digestivo">
+	            <div class="izquierda">
+	                <label class="completo encabezado-label izquierda">SISTEMA DIGESTIVO:</label> 
+	            </div>
+	                
+	            <div class="derecha">
+		            <div id="respuestas_check">
+		                <input  type="checkbox" 
+		                        name="lengua_s"  
+		                        ng-model="lengua_s"
+		                        id="lengua_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="lengua_s" class="derecha">Lengua cubierta de blanco en el día o al despertarse.</label>
+
+		                <input  type="checkbox" 
+		                        name="abdominal_s"  
+		                        ng-model="abdominal_s"
+		                        id="abdominal_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="abdominal_s" class="derecha">Dolor abdominal.</label>
+
+		                <input  type="checkbox" 
+		                        name="nausea_s"  
+		                        ng-model="nausea_s"
+		                        id="nausea_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="nausea_s" class="derecha">Náuseas.</label>
+
+		                <input  type="checkbox" 
+		                        name="vomito_s"  
+		                        ng-model="vomito_s"
+		                        id="vomito_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="vomito_s" class="derecha">Vómito.</label>
+
+		                <input  type="checkbox" 
+		                        name="boca_e_s"  
+		                        ng-model="boca_e_s"
+		                        id="boca_e_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="boca_e_s" class="derecha">Hinchazón o ardor en la boca del estómago.</label>
+
+		                <input  type="checkbox" 
+		                        name="colitis_s"  
+		                        ng-model="colitis_s"
+		                        id="colitis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="colitis_s" class="derecha">Colitis.</label>
+
+		                <input  type="checkbox" 
+		                        name="gastritis_s"  
+		                        ng-model="gastritis_s"
+		                        id="gastritis_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="gastritis_s" class="derecha">Gastritis.</label>
+
+		                <input  type="checkbox" 
+		                        name="aliento_s"  
+		                        ng-model="aliento_s"
+		                        id="aliento_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="aliento_s" class="derecha">Mal aliento.</label>
+
+		                <input  type="checkbox" 
+		                        name="eructos_s"  
+		                        ng-model="eructos_s"
+		                        id="eructos_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="eructos_s" class="derecha">Eructos.</label>
+
+		                <input  type="checkbox" 
+		                        name="gases_s"  
+		                        ng-model="gases_s"
+		                        id="gases_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="gases_s" class="derecha">Gases.</label>
+
+		                <input  type="checkbox" 
+		                        name="estrenimiento_s"  
+		                        ng-model="estrenimiento_s"
+		                        id="estrenimiento_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="estrenimiento_s" class="derecha">Estreñimiento.</label>
+
+		                <input  type="checkbox" 
+		                        name="indigestion_s"  
+		                        ng-model="indigestion_s"
+		                        id="indigestion_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="indigestion_s" class="derecha">Indigestión.</label>
+
+		                <input  type="checkbox" 
+		                        name="pies_s"  
+		                        ng-model="pies_s"
+		                        id="pies_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="pies_s" class="derecha">Pies y manos fríos.</label>
+
+		                <input  type="checkbox" 
+		                        name="sed_s"  
+		                        ng-model="sed_s"
+		                        id="sed_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="sed_s" class="derecha">Mucha sed.</label>
+
+		                <input  type="checkbox" 
+		                        name="cabeza_s"  
+		                        ng-model="cabeza_s"
+		                        id="cabeza_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="cabeza_s" class="derecha">Dolor de cabeza.</label>
+
+		               	<input  type="checkbox" 
+		                        name="migrana_s"  
+		                        ng-model="migrana_s"
+		                        id="migrana_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="migrana_s" class="derecha">Migraña.</label>
+
+		                <input  type="checkbox" 
+		                        name="vision_s"  
+		                        ng-model="vision_s"
+		                        id="vision_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="vision_s" class="derecha">Visión borrosa.</label>
+
+		                <input  type="checkbox" 
+		                        name="mareos_s"  
+		                        ng-model="mareos_s"
+		                        id="mareos_s"
+		                        class="izquierda"
+		                        ng-disabled="des_sintomas">
+		                	<label for="mareos_s" class="derecha">Mareos frecuentes.</label>
+
+		            </div>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Descripción breve y frecuencia:</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_digestion" ng-model="des_digestion" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">¿Tiene antojo incontrolable por alimentos: dulces, salados, etc.?<br><br> (Frecuencia y especifique el alimento)</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_antojos" ng-model="des_antojos" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Veces que evacua el colón</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <input type="text" class="completo form-control" id="colon" ng-model="colon" capitalize ng-disabled="des_sintomas">
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">Describa su digestión y evacuación: (número de veces, forma, color)</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="des_evacua" ng-model="des_evacua" capitalize maxlength="250" ng-disabled="des_sintomas"></textarea>
+	            </div>
+
+	        </div>
+
+			<div id="botones" >
+	            <div id="boton_ligar_sinto" class="b-act-save">
+	            	<button type="button" class="b-general der {{color_secc}} btn btn-default" ng-click="ligar_sintomas()" ng-disabled="ligarSintomas">
+	                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+	                </button>
+	            </div>
+	        </div>
+
+	        <div class="separa"></div>
+		</div>
+	</div>
+</div>

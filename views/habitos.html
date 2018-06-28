@@ -1,0 +1,97 @@
+<div class="container" ng-controller="habitosController">
+	<div id="form_antecedentes">
+
+		<div id="instrucciones_general" ng-init="botones_habitos()">
+			<h2 class="{{c_letra}} datos_head">HÁBITOS GENERALES</h2>
+	        <p>
+	            En ésta sección, se introducirá la información acerca de los hábitos del usuario. Por favor lea cuidadosamente cada una de las preguntas, así mismo llene todos los datos si es que cuenta con ellos.
+	        </p>
+		</div>
+        
+        <div id="habitos_nutricionales">
+            <label class="completo encabezado-label izquierda">HÁBITOS NUTRICIONALES:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">¿Tiene horarios establecidos para realizar sus alimentos?</label>
+            </div>
+                
+            <div class="derecha">
+                <div id="combos_radio" class="completo">
+	                <div id="hora_si" class="radios-h izquierda">
+	                    <input  type="radio" 
+	                            value="si"
+	                            ng-model="horario"
+	                            id="si_hora"
+	                            ng-click="hora('Y')" 
+	                            ng-disabled="des_habitos">
+	                        <label for="si_hora">Sí</label>
+	                </div>
+	                
+	                <div id="hiper_no" class="radios-h derecha">
+	                    <input  type="radio" 
+	                            value="no"
+	                            ng-model="horario"
+	                            id="no_hora"
+	                            ng-click="hora('N')"
+	                            ng-disabled="des_habitos">
+	                        <label for="no_hora">No</label>
+	                </div>
+	            </div>
+	        </div>
+
+
+	        <div class="izquierda">
+                <label class="completo">Número de comidas que realiza al día</label>
+            </div>
+                
+            <div class="derecha">
+            	<input type="text" class="completo form-control" id="comidas" ng-model="comidas" capitalize ng-disabled="des_habitos">
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Nota breve de cómo es un día habitual de su alimentación desde que se despierta hasta que duerme:</label>
+            </div>
+                
+            <div class="derecha">
+            	<label class="completo">Desayuno</label><br><br>
+            	<textarea class="completo form-control" id="desayuno" ng-model="desayuno" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+            	<br><br><br><br>
+            	<label class="completo">Almuerzo</label><br><br>
+            	<textarea class="completo form-control" id="almuerzo" ng-model="almuerzo" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+            	<br><br><br><br>
+            	<label class="completo">Comida</label><br><br>
+            	<textarea class="completo form-control" id="comida" ng-model="comida" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+            	<br><br><br><br>
+            	<label class="completo">Merienda</label><br><br>
+            	<textarea class="completo form-control" id="merienda" ng-model="merienda" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+            	<br><br><br><br>
+            	<label class="completo">Cena</label><br><br>
+            	<textarea class="completo form-control" id="cena" ng-model="cena" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+	        </div>
+	    </div>
+
+
+	    <div id="habitos_nutricionales">
+            <label class="completo encabezado-label izquierda">HÁBITOS EN BEBIDAS:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">¿Cuánta agua natural toma y que más líquidos habitualmente prepara; como té, café, refresco, alcohol y con qué frecuencia?</label>
+            </div>
+                
+            <div class="derecha">
+                <textarea class="completo form-control" id="bebidas" ng-model="bebidas" capitalize maxlength="250" ng-disabled="des_habitos"></textarea>
+	        </div>
+	    </div>
+
+	    <div id="botones">
+            <div id="boton_ligar_habitos">
+                <div class="b-act-save">
+                    <button type="button" class="b-general der {{color_secc}} btn btn-default" ng-click="ligar_habitos()" ng-disabled="ligarHabitos">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="separa"></div>
+    </div>
+</div>

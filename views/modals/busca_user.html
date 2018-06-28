@@ -1,0 +1,59 @@
+<div id="agrega_dir">
+	<div id="cabecera" class="cabezal {{color_secc}}">
+		<label class="nombre-modal">{{nombre_modal}}</label>
+	</div>
+
+	<div id="contenedor_modal">
+		<div id="alerta_error" class="alert alert-danger centrado" role="alert" ng-show="error_modal">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span >{{m_error_modal}}</span>
+		</div>
+
+		<div id="cargando" class="text-center" ng-show="cargando_modal">
+            <img src="../img/loadingRing.gif" class="tam-10">
+        </div>
+
+		<div id="cuerpo_modal" ng-show="busca_rfc">
+			<div id="form_director" class="col-md-12">
+
+				<div id="rfc_s" class="space">
+					<div id="l_rfc" class="izquierda">
+						<label class="label_rfc">RFC:</label>
+					</div>
+					<div id="i_rfc" class="derecha">
+						<input 	type="text"
+								class="form-control {{error_rfc_m}}" 
+								id="rfc_busca" 
+								ng-model="rfc_busca"
+								ng-enter="buscar_datos();"
+								placeholder="Introduzca un RFC a buscar..."
+								capitalize>
+					</div>
+				</div>
+
+				<label style="width: 100%;text-align: center;"> ----- O -----</label> <br> <br>
+
+				<div id="tel_s" class="space">
+					<div id="l_tel" class="izquierda">
+						<label class="label_tel">Teléfono:</label>
+					</div>
+					<div id="i_tel" class="derecha">
+						<input 	type="text"
+								class="form-control {{error_tel_s}}" 
+								id="tel_busca" 
+								ng-model="tel_busca"
+								ng-enter="buscar_datos();"
+								placeholder="Introduzca un teléfono a buscar..."
+								capitalize>
+					</div>
+				</div>
+
+				<div id="busca_reg">
+					<button id="b_busca_reg" class="b-busca boton_index der {{color_secc}}" ng-click="buscar_datos();">
+						<label class="glyphicon glyphicon-search"> Buscar </label>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,385 @@
+<div class="container" ng-controller="evaluacionesController">
+	<div id="form_antecedentes">
+
+		<div id="instrucciones_general" ng-init="botones_habitos()">
+			<h2 class="{{c_letra}} datos_head">EVALUACIONES</h2>
+	        <p>
+	            En ésta sección, se introducirá la información acerca de las evaluaciones cualitativas y cuantitativas. Por favor lea cuidadosamente cada una de las preguntas, así mismo llene todos los datos si es que cuenta con ellos.
+	        </p>
+		</div>
+        
+        <div id="evaluaciones_cualitativas">
+            <label class="completo encabezado-label izquierda">CUALITATIVAS:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">Revisión de Iris</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control {{error_iris}}" id="iris" ng-model="iris" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+
+				<form ng-submit="valida_iris()" name="form" role="form">
+				  	<input id="img_iris" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_iris">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_iris}}" style="width:300px;">
+				</form>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Revisión de Lengua</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control {{error_lengua}}" id="lengua" ng-model="lengua" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+
+				<form ng-submit="valida_lengua()" name="form" role="form">
+				  	<input id="img_lengua" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_lengua">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_lengua}}" style="width:300px;">
+				</form>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Revisión de Uñas</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control {{error_unas}}" id="unas" ng-model="unas" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+
+				<form ng-submit="valida_unas()" name="form" role="form">
+				  	<input id="img_unas" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_unas">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_unas}}" style="width:300px;">
+				</form>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Revisión de Piel (ROSTRO Y OTROS) </label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control {{error_piel}}" id="piel" ng-model="piel" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+
+				<form ng-submit="valida_piel()" name="form" role="form">
+				  	<input id="img_piel" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_piel">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_piel}}" style="width:300px;">
+				</form>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Cuerpo completo adelante </label>
+            </div>
+                
+            <div class="derecha">
+				<form ng-submit="cuerpo_ad()" name="form" role="form">
+				  	<input id="img_cuerpo_ad" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_cuerpo_ad">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_cuerpo_ad}}" style="width:300px;">
+				</form>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Cuerpo completo atrás</label>
+            </div>
+                
+            <div class="derecha">
+				<form ng-submit="cuerpo_at()" name="form" role="form">
+				  	<input id="img_cuerpo_at" ng-model="form.image" type="file" class="form-control input-lg border-sub" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px" >
+				  	<button type="submit" class="b-general der {{color_secc}} btn btn-default" ng-disabled="dis_cuerpo_at">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Subir
+                    </button>
+				  	<br/>
+				  <img ng-src="{{image_source_cuerpo_at}}" style="width:300px;">
+				</form>
+	        </div>
+
+	    </div>
+
+	    <div id="evaluaciones_cualitativas">
+            <label class="completo encabezado-label izquierda">CUANTITATIVAS:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">Edad</label>
+            </div>
+                
+            <div class="derecha" ng-init="anos()">
+            	<select id="edad" 
+                        class="form-control completo" 
+                        ng-model="edad" 
+                        ng-options="ano.ID as ano.valor for ano in anos_options" 
+                        ng-disabled="des_evaluacion">
+                        <option class="option" value="">-- SELECCIONE --</option>
+                </select>
+	        </div>
+                                                        
+            <div class="izquierda">
+                <label class="completo">Estatura</label>
+            </div>
+                
+            <div class="derecha" ng-init="centimetros()">
+            	<select id="cms" 
+                        class="form-control completo" 
+                        ng-model="cms" 
+                        ng-options="cm.ID as cm.valor for cm in cm_options" 
+                        ng-disabled="des_evaluacion">
+                        <option class="option" value="">-- SELECCIONE --</option>
+                </select>
+	        </div>
+
+	        <table id="datos_fisicos" class="table table-hover table-striped table-responsive centrado completo97">
+	            <tbody>
+	                <tr>
+	                    <td>Peso</td>
+	                    <td ng-init="pesoskg()">
+	                    	<select id="peso" 
+				                class="form-control ochenta" 
+				                ng-model="peso" 
+				                ng-options="kg.ID as kg.valor for kg in kg_options" 
+				                ng-disabled="des_evaluacion"
+				                ng-change="calc_imc()">
+				                <option class="option" value="">-- SELECCIONE --</option>
+				            </select> 
+				            <label class="l-oche">kgs</label>
+	                    </td>
+	                    <td>Medición brazo</td>
+	                    <td>
+	                    <input type="text" class="ochenta form-control" id="med_brazo" ng-model="med_brazo" capitalize ng-disabled="des_evaluacion"><label class="l-oche">cms</label>
+	                    </td>
+	                </tr>   
+	                <tr>
+	                    <td>Masa grasa</td>
+	                    <td>
+	                    	<input type="text" class="ochenta form-control" id="masa_grasa" ng-model="masa_grasa" capitalize ng-disabled="des_evaluacion"><label class="l-oche">%</label>
+	                    </td>
+	                    <td>Medición cintura</td>
+	                    <td>
+	                    	<input type="text" class="ochenta form-control" id="med_cintura" ng-model="med_cintura" capitalize ng-disabled="des_evaluacion"><label class="l-oche">cms</label>
+	                    </td>
+	                </tr> 
+	                <tr>
+	                    <td>Masa muscular</td>
+	                    <td>
+	                    	<input type="text" class="ochenta form-control" id="masa_musc" ng-model="masa_musc" capitalize ng-disabled="des_evaluacion"><label class="l-oche">%</label>
+	                    </td>
+	                    <td>Medición cadera</td>
+	                    <td>
+	                    	<input type="text" class="ochenta form-control" id="med_cadera" ng-model="med_cadera" capitalize ng-disabled="des_evaluacion"><label class="l-oche">cms</label>
+	                    </td>
+	                </tr> 
+	                <tr>
+	                    <td>IMC</td>
+	                    <td ng-init="IMC_C()">
+	                    	<input type="text" class="ochenta form-control" id="imc" ng-model="imc" capitalize readonly="readonly">
+	                    </td>
+	                    <td>Medición pierna</td>
+	                    <td>
+	                    	<input type="text" class="ochenta form-control" id="med_pierna" ng-model="med_pierna" capitalize ng-disabled="des_evaluacion"><label class="l-oche">cms</label>
+	                    </td>
+	                </tr> 
+	            </tbody>
+	        </table>
+
+	        <div class="izquierda">
+                <label class="completo">Complexión</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="complexion" ng-model="complexion" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Peso ideal estimado</label>
+            </div>
+                
+            <div class="derecha" >
+            	<input type="text" class="completo form-control" id="ideal" ng-model="ideal" capitalize ng-disabled="des_evaluacion">
+	        </div>
+	    </div>
+
+	    <div class="separa"></div>
+
+	    <div id="evaluaciones_cualitativas">
+            <label class="completo encabezado-label izquierda">INFORMACIÓN ADICIONAL:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">Describa su estado de humor o ánimo frecuente</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="animo" ng-model="animo" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">Situación emocional (en caso de ser relevante, por ejemplo proceso de divocio, duelo por alguna pérdida como un trabajo o un ser querido)</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="emocional" ng-model="emocional" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+
+	        <div id="form_nutriologo">
+                <div class="izquierda">
+                    <label class="completo">¿Ha visitado algún servicio nutricional o médico con fines deportivos o de bajar de peso u otro?</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="nutriologo_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="nutriologo"
+	                                id="si_nutriologo"
+	                                ng-click="nutriologo_p('Y')"
+	                                ng-disabled="des_evaluacion">
+	                                <label for="si_nutriologo">Sí</label>
+	                    </div>
+	                    <div id="nutriologo_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="nutriologo"
+	                                id="no_nutriologo"
+	                                ng-click="nutriologo_p('N')"
+	                                ng-disabled="des_evaluacion">
+	                                <label for="no_nutriologo">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_nutriologo" ng-show="q_nutriologo">
+	                	<label class="completo izquierda">¿Cúando y de qué tipo?</label>
+	                	<textarea class="completo form-control" id="nutriologo_q" ng-model="nutriologo_q" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	                </div>
+                </div>
+            </div>
+
+            <div class="separa"></div>
+
+            <div id="form_logro">
+                <div class="izquierda">
+                    <label class="completo">¿Se logró el objetivo de la consulta anterior?</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="logro_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="logro"
+	                                id="si_logro"
+	                                ng-click="logro_p('Y')"
+	                                ng-disabled="des_evaluacion">
+	                                <label for="si_logro">Sí</label>
+	                    </div>
+	                    <div id="logro_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="logro"
+	                                id="no_logro"
+	                                ng-click="logro_p('N')"
+	                                ng-disabled="des_evaluacion">
+	                                <label for="no_logro">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_logro" ng-show="q_logro">
+	                	<label class="completo izquierda">Debido a:</label>
+	                	<textarea class="completo form-control" id="logro_q" ng-model="logro_q" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	                </div>
+                </div>
+            </div>
+
+            <div class="izquierda">
+                <label class="completo">¿Qué es lo que le motiva a mejorar?</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="motiva" ng-model="motiva" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">¿Por qué creé que actualmente no tiene los resultados físicos o de salud que desea? </label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="resultados" ng-model="resultados" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+	    </div>
+
+	    <div id="adicional_sobrepeso">
+            <label class="completo encabezado-label izquierda">INFORMACIÓN ADICIONAL SOBREPESO U OBESIDAD:</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">¿Cómo han sido los cambios de su peso a lo largo de su vida?</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="sobrepeso" ng-model="sobrepeso" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+	    </div>
+
+	    <div class="separa"></div>
+
+	    <div id="adicional_sobrepeso">
+            <label class="completo encabezado-label izquierda">OBJETIVOS</label><br>
+                                                        
+            <div class="izquierda">
+                <label class="completo">PLANTEAMIENTO DE META</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="meta" ng-model="meta" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+	        
+	        <div class="izquierda">
+                <label class="completo">FECHA</label>
+            </div>
+                
+            <div class="derecha">
+            	<input type="text" class="completo form-control datepicker" id="fecha_meta" ng-model="fecha_meta" capitalize ng-disabled="des_evaluacion" placeholder="AAAA-MM-DD">
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">CONSIDERACIONES O PRETEXTOS</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="pretextos" ng-model="pretextos" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+
+	        <div class="izquierda">
+                <label class="completo">COMPROMISOS</label>
+            </div>
+                
+            <div class="derecha">
+            	<textarea class="completo form-control" id="compromisos" ng-model="compromisos" capitalize maxlength="250" ng-disabled="des_evaluacion"></textarea>
+	        </div>
+	    </div>
+
+	    <div id="botones">
+            <div id="boton_ligar_eval" >
+                <div class="b-act-save">
+                    <button type="button" class="b-general der {{color_secc}} btn btn-default" ng-click="ligar_evaluaciones()" ng-disabled="des_evaluacion">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>  
+        </div>
+
+        <div class="separa"></div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+.imagen-colegio{
+	box-sizing: border-box;
+	width: 30%;
+    margin-left: 35%;
+    float: left;
+    margin-right: 35%;
+}
+.separacion{
+	box-sizing: border-box;
+	margin: 10px;
+}
+
+.datos-entrar{
+	box-sizing: border-box;
+	width: 30%;
+    margin-left: 35%;
+    float: left;
+    margin-right: 35%;
+}
+
+.b_entrar:hover, .b_entrar:active, .b_entrar:visited, .b_entrar:focus, .b_entrar{
+	box-sizing: border-box;
+	color: white;
+	float: right;
+	background: #337ab7;
+}
+
+.error{
+	box-sizing: border-box;
+	border: 1px solid red;
+}
+
+.alertas{
+	box-sizing: border-box;
+    float: right;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.espacio{
+	box-sizing: border-box;
+	margin-right: 10px;
+}

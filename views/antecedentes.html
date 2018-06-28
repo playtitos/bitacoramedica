@@ -1,0 +1,649 @@
+<div class="container" ng-controller="antecedentesController">
+	<div id="form_antecedentes">
+
+		<div id="instrucciones_general" ng-init="botones_antecedentes()">
+			<h2 class="{{c_letra}} datos_head">ANTECEDENTES MÉDICOS</h2>
+	        <p>
+	            En ésta sección, se introducirá la información médica del usuario. Por favor lea cuidadosamente cada una de las preguntas, así mismo llene todos los datos si es que cuenta con ellos.
+	        </p>
+		</div>
+        
+        <div id="estudios">
+            <label class="completo encabezado-label izquierda">NIVELES DE:</label><br>
+                                                        
+            <div id="form_colesterol">
+                <div class="izquierda">
+                    <label class="completo">Colesterol:</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="colesterol" ng-model="colesterol" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+            
+            <div id="form_colesterol_t">
+                <div class="izquierda">
+                    <label class="completo">Colesterol Total:</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="colesterol_t" ng-model="colesterol_t" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+
+            <div id="form_colesterol_b">
+                <div class="izquierda">
+                    <label class="completo">Colesterol LPAD (B):</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="colesterol_b" ng-model="colesterol_b" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+
+            <div id="form_colesterol_m">
+                <div class="izquierda">
+                    <label class="completo">Colesterol LPBD (M):</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="colesterol_m" ng-model="colesterol_m" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+
+            <div id="form_trigliceridos">
+                <div class="izquierda">
+                    <label class="completo">Triglicéridos:</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="trigliceridos" ng-model="trigliceridos" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+
+            <div id="form_glucosa">
+                <div class="izquierda">
+                    <label class="completo">Glucosa:</label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="glucosa" ng-model="glucosa" capitalize ng-disabled="des_antecedentes">
+                </div>
+            </div>
+
+            <div id="form_diagnosticos">
+                <div class="izquierda">
+                    <label class="completo">Diagnósticos:</label>
+                </div>
+                
+                <div class="derecha">
+                    <textarea class="completo form-control" id="diagnosticos" ng-model="diagnosticos" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="separa"></div>
+
+        <div id="herencia">
+            <label class="completo encabezado-label izquierda">FACTORES HEREDITARIOS</label><br><br>
+
+            <label class="completo encabezado-label izquierda">¿Alguno de sus familiares como padre, madre o tíos cercanos padece alguna de las siguientes enfermedades?</label><br><br>
+                                                        
+            <div id="form_hipertension">
+                <div class="izquierda">
+                    <label class="completo">Hipertensión:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="hiper_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="hipertension"
+	                                id="si_hiper"
+	                                ng-click="hiper_s('Y')" 
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_hiper">Sí</label>
+	                    </div>
+	                    <div id="hiper_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="hipertension"
+	                                id="no_hiper"
+	                                ng-click="hiper_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_hiper">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_hiper" ng-show="q_hiper">
+	                	<label class="completo izquierda">¿Quién la padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="hiper_q" ng-model="hiper_q" capitalize ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+            
+            <div id="form_diabetes">
+                <div class="izquierda">
+                    <label class="completo">Diabetes:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="diabetes_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="diabetes"
+	                                id="si_diabetes"
+	                                ng-click="diabetes_s('Y')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_diabetes">Sí</label>
+	                    </div>
+	                    <div id="diabetes_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="diabetes"
+	                                id="no_diabetes"
+	                                ng-click="diabetes_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_diabetes">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_diabetes" ng-show="q_diabetes">
+	                	<label class="completo izquierda">¿Quién la padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="diabetes_q" ng-model="diabetes_q" capitalize ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+
+            <div id="form_cancer">
+                <div class="izquierda">
+                    <label class="completo">Cáncer:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="cancer_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="cancer"
+	                                id="si_cancer"
+	                                ng-click="cancer_s('Y')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_cancer">Sí</label>
+	                    </div>
+	                    <div id="cancer_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="cancer"
+	                                id="no_cancer"
+	                                ng-click="cancer_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_cancer">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_cancer" ng-show="q_cancer">
+	                	<label class="completo izquierda">¿Quién lo padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="cancer_q" ng-model="cancer_q" capitalize
+	                	ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+
+            <div id="form_cardiacas">
+                <div class="izquierda">
+                    <label class="completo">Enfermedades cardíacas:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="cardiaca_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="cardiaca"
+	                                id="si_cardiaca"
+	                                ng-click="cardiaca_s('Y')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_cardiaca">Sí</label>
+	                    </div>
+	                    <div id="cardiaca_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="cardiaca"
+	                                id="no_cardiaca"
+	                                ng-click="cardiaca_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_cardiaca">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_cardiaca" ng-show="q_cardiaca">
+	                	<label class="completo izquierda">¿Quién las padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="cardiaca_q" ng-model="cardiaca_q" capitalize ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+
+            <div id="form_trigliceridos">
+                <div class="izquierda">
+                    <label class="completo">Enfermedades pulmonares:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="pulmonar_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="pulmonar"
+	                                id="si_pulmonar"
+	                                ng-click="pulmonar_s('Y')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_pulmonar">Sí</label>
+	                    </div>
+	                    <div id="cardiaca_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="pulmonar"
+	                                id="no_pulmonar"
+	                                ng-click="pulmonar_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_pulmonar">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_pulmonar" ng-show="q_pulmonar">
+	                	<label class="completo izquierda">¿Quién las padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="pulmonar_q" ng-model="pulmonar_q" capitalize
+	                	ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+
+            <div id="form_glucosa">
+                <div class="izquierda">
+                    <label class="completo">Otras enfermedades:</label>
+                </div>
+                
+                <div class="derecha">
+                    <div id="combos_radio" class="completo">
+	                    <div id="otras_si" class="radios-h izquierda">
+	                        <input  type="radio" 
+	                                value="si"
+	                                ng-model="otras"
+	                                id="si_otras"
+	                                ng-click="otras_s('Y')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="si_otras">Sí</label>
+	                    </div>
+	                    <div id="otras_no" class="radios-h derecha">
+	                        <input  type="radio" 
+	                                value="no"
+	                                ng-model="otras"
+	                                id="no_otras"
+	                                ng-click="otras_s('N')"
+	                                ng-disabled="des_antecedentes">
+	                                <label for="no_otras">No</label>
+	                    </div>
+	                </div>
+
+	                <div id="quien_otras" ng-show="q_otras">
+	                	<label class="completo izquierda">¿Cuáles?</label>
+	                	<input type="text" class="completo form-control derecha" id="otras_enf" ng-model="otras_enf" capitalize ng-disabled="des_antecedentes"> <br><br><br>
+	                	<label class="completo izquierda">¿Quién las padece?</label>
+	                	<input type="text" class="completo form-control derecha" id="otras_q" ng-model="otras_q" capitalize ng-disabled="des_antecedentes">
+	                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="diagnosticos">
+	        <label class="completo encabezado-label izquierda">DIAGNÓSTICOS PREVIOS:</label><br>                                           
+	        <div id="form_enfermedades_propias">
+	            <div class="izquierda">
+	                <label class="completo">¿Padece usted alguna de las siguientes enfermedades?</label>
+	            </div>
+	                
+	            <div class="derecha">
+		            <div id="respuestas_check">
+		                <input  type="checkbox" 
+		                        ng-model="hiper_p"
+		                        ng-click="cambia_check(hiper_p, 'hiper')"
+		                        id="hiper_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                	<label for="hiper_p" class="derecha">Hipertensión arterial.</label>
+
+		                <input  type="checkbox" 
+		                        name="diabetes_p"  
+		                        ng-model="diabetes_p"
+		                        ng-click="cambia_check(diabetes_p, 'diabetes')"
+		                        id="diabetes_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                	<label for="diabetes_p" class="derecha">Diabetes.</label>
+
+		                <input  type="checkbox" 
+		                        name="corazon_p"  
+		                        ng-model="corazon_p"
+		                        ng-click="cambia_check(corazon_p, 'corazon')"
+		                        id="corazon_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="corazon_p" class="derecha">Enfermedades del corazón.</label>
+
+		                <input  type="checkbox" 
+		                        name="pulmon_p"  
+		                        ng-model="pulmon_p"
+		                        ng-click="cambia_check(pulmon_p, 'pulmon')"
+		                        id="pulmon_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="pulmon_p" class="derecha">Enfermedades del pulmón.</label>
+
+		                <input  type="checkbox" 
+		                        name="renal_p"  
+		                        ng-model="renal_p"
+		                        ng-click="cambia_check(renal_p, 'renal')"
+		                        id="renal_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="renal_p" class="derecha">Enfermedades renales.</label>
+
+		                <input  type="checkbox" 
+		                        name="cancer_p"  
+		                        ng-model="cancer_p"
+		                        ng-click="cambia_check(cancer_p, 'cancer')"
+		                        id="cancer_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="cancer_p" class="derecha">Cáncer.</label>
+
+		                <input  type="checkbox" 
+		                        name="tiroides_p"  
+		                        ng-model="tiroides_p"
+		                        ng-click="cambia_check(tiroides_p, 'tiroides')"
+		                        id="tiroides_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="tiroides_p" class="derecha">Tiroides.</label>
+
+		                <input  type="checkbox" 
+		                        name="auto_p"  
+		                        ng-model="auto_p"
+		                        ng-click="cambia_check(auto_p, 'auto')"
+		                        id="auto_p"
+		                        class="izquierda"
+		                        ng-disabled="des_antecedentes">
+		                    <label for="auto_p" class="derecha">Autoinmunes.</label>
+		            </div>
+	            </div>
+
+	            <div class="izquierda">
+	                <label class="completo">¿Desde hace cuánto tiempo?</label>
+	            </div>
+	                
+	            <div class="derecha">
+	                <textarea class="completo form-control" id="hace_cuanto" ng-model="hace_cuanto" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>    
+
+	            <div class="izquierda">
+	                <label class="completo">¿Recibe algún tratamiento?</label>
+	            </div>
+	                
+	                <div class="derecha">
+	                    <div id="combos_radio" class="completo">
+		                    <div id="trata_si" class="radios-h izquierda">
+		                        <input  type="radio" 
+		                                value="si"
+		                                ng-model="tratamiento"
+		                                id="si_trata"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="si_trata">Sí</label>
+		                    </div>
+		                    <div id="trata_no" class="radios-h derecha">
+		                        <input  type="radio" 
+		                                value="no"
+		                                ng-model="tratamiento"
+		                                id="no_trata"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="no_trata">No</label>
+		                    </div>
+		                </div>
+	                </div>
+
+
+	                <div class="izquierda">
+	                    <label class="completo">¿Toma medicamentos con o sin prescripción médica?</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                    <div id="combos_radio" class="completo">
+		                    <div id="medicamentos_si" class="radios-h izquierda">
+		                        <input  type="radio" 
+		                                value="si"
+		                                ng-model="medicamentos"
+		                                id="si_medicamentos"
+		                                ng-click="medicamentos_s('Y')"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="si_medicamentos">Sí</label>
+		                    </div>
+		                    <div id="otras_no" class="radios-h derecha">
+		                        <input  type="radio" 
+		                                value="no"
+		                                ng-model="medicamentos"
+		                                id="no_medicamentos"
+		                                ng-click="medicamentos_s('N')"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="no_medicamentos">No</label>
+		                    </div>
+		                </div>
+
+		                <div ng-show="medicamentos_c">
+		                	<label class="completo izquierda">¿Cuáles?</label>
+		                	<textarea class="completo form-control" id="medicamentos_i" ng-model="medicamentos_i" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+		                </div>
+	                </div>
+	            </div>
+
+	            <div class="separa"></div>
+
+	            <div id="form_embarazo">
+	            	<div class="izquierda">
+	                    <label class="completo">¿Está embarazada?</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                    <div id="combos_radio" class="completo">
+		                    <div id="embarazo_si" class="radios-h izquierda">
+		                        <input  type="radio" 
+		                                value="si"
+		                                ng-model="embarazo"
+		                                id="si_embarazo"
+		                                ng-click="embarazo_s('Y')"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="si_embarazo">Sí</label>
+		                    </div>
+		                    <div id="embarazo_no" class="radios-h derecha">
+		                        <input  type="radio" 
+		                                value="no"
+		                                ng-model="embarazo"
+		                                id="no_embarazo"
+		                                ng-click="embarazo_s('N')"
+		                                ng-disabled="des_antecedentes">
+		                                <label for="no_embarazo">No</label>
+		                    </div>
+		                </div>
+	                </div>
+
+	                <div ng-show="embarazo_q">
+	                	<div class="izquierda">
+		                    <label class="completo">Mencione el número de embarazos, cesáreas, abortos (de ser el caso).</label>
+		                </div>
+		                
+		                <div class="derecha">
+		                	<input type="text" class="completo form-control" id="abortos" ng-model="abortos" capitalize ng-disabled="des_antecedentes">
+		                </div>
+	                </div>
+
+	                <div ng-show="no_embarazo_q">
+	                	<div class="izquierda">
+		                    <label class="completo">¿Está completamente segura de que no lo está?</label>
+		                </div>
+		                
+		                <div class="derecha">
+		                    <div id="combos_radio" class="completo">
+			                    <div id="segura_si" class="radios-h izquierda">
+			                        <input  type="radio" 
+			                                value="si"
+			                                ng-model="segura"
+			                                id="si_segura" 
+			                                ng-disabled="des_antecedentes">
+			                                <label for="si_segura">Sí</label>
+			                    </div>
+			                    <div id="segura_no" class="radios-h derecha">
+			                        <input  type="radio" 
+			                                value="no"
+			                                ng-model="segura"
+			                                id="no_segura"
+			                                ng-disabled="des_antecedentes">
+			                                <label for="no_segura">No</label>
+			                    </div>
+			                </div>
+		                </div>
+	                </div>
+
+	                <div class="izquierda">
+	                    <label class="completo">Indique si es regular en su período y si padece SPM (cólicos y molestias), depresión o ansiedad antes, durante o después del período menstrual:</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<input type="text" class="completo form-control" id="periodo" ng-model="periodo" capitalize ng-disabled="des_antecedentes">
+	                </div>
+	            </div>
+
+	            <div class="separa"></div>
+
+	            <div id="form_alergico">
+	            	<div class="izquierda">
+	                    <label class="completo">Mencione si es alérgico a algún medicamento o alimento.</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<textarea class="completo form-control" id="alergico" ng-model="alergico" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	                </div>
+	            </div>
+
+	            <div id="form_deshidratacion">
+	            	<div class="izquierda">
+	                    <label class="completo">¿Ha sufrido reciente deshidratación severa reciente? (que haya tenido que utilizar suero prescrito por un profesional ya sea oral o intravenoso) ¿Hace cuánto tiempo y cuál fue la razón?</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<textarea class="completo form-control" id="deshidratacion" ng-model="deshidratacion" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	                </div>
+	            </div>
+
+	            <div id="form_desequilibrio">
+	            	<div class="izquierda">
+	                    <label class="completo">Mencione si padece de algún desequilibrio hormonal, si utiliza hormonas y especifique cuáles y ¿para qué?</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<textarea class="completo form-control" id="hormonas" ng-model="hormonas" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	                </div>
+	            </div>
+
+	            <div id="form_esqueletico">
+	            	<div class="izquierda">
+	                    <label class="completo">Mencione padecimientos ortopédicos, esquelético-muscular, o lesiones:</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<textarea class="completo form-control" id="ortopedicos" ng-model="ortopedicos" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	                </div>
+	            </div>
+
+	            <div id="form_depresion">
+	            	<div class="izquierda">
+	                    <label class="completo">Mencione si en su historia de vida hay o hubo depresión (5), intento de suicidio, ansiedad, irritabilidad, convulsiones, hospitalización psiquiátrica. (Especifique qué, hace cuánto y cuánto tiempo duró y si toma o tomó medicamento psiquiátrico)</label>
+	                </div>
+	                
+	                <div class="derecha">
+	                	<textarea class="completo form-control" id="depresion" ng-model="depresion" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+
+	    <div class="separa"></div>
+
+        <div id="habitos_generales">
+            <label class="completo encabezado-label izquierda">REVISIÓN DE HÁBITOS GENERALES</label><br><br>
+
+            <div id="form_fuma">
+	           	<div class="izquierda">
+	                <label class="completo">Mencione si fuma o bebe o toma alguna droga, qué cantidad y la frecuencia con la que lo hace.</label>
+	            </div>
+	                
+	            <div class="derecha">
+	               	<textarea class="completo form-control" id="fuma" ng-model="fuma" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>
+	        </div>
+
+	        <div id="form_fuma">
+	           	<div class="izquierda">
+	                <label class="completo">¿Actualmente realiza ejercicio? (especifique cuál y con qué frecuencia) ¿Tiene algún impedimento para realizar ejercicio físico?</label>
+	            </div>
+	                
+	            <div class="derecha">
+	               	<textarea class="completo form-control" id="ejercicio" ng-model="ejercicio" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>
+	        </div>
+
+	        <div id="form_duerme">
+	           	<div class="izquierda">
+	                <label class="completo">¿Cómo duerme? Número de horas y si es bueno o malo su descanso. (Escribir si tiene horario de sueño) ¿Padece insomnio? (Describirlo)</label>
+	            </div>
+	                
+	            <div class="derecha">
+	               	<textarea class="completo form-control" id="duerme" ng-model="duerme" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>
+	        </div>
+
+	        <div id="form_meditacion">
+	           	<div class="izquierda">
+	                <label class="completo">¿Practica Meditación o relajación habitualmente?</label>
+	            </div>
+	                
+	            <div class="derecha">
+	               	<textarea class="completo form-control" id="meditacion" ng-model="meditacion" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>
+	        </div>
+
+	        <div id="form_ocio">
+	           	<div class="izquierda">
+	                <label class="completo">¿Planea actividades de ocio y entretenimiento?</label>
+	            </div>
+	                
+	            <div class="derecha">
+	               	<textarea class="completo form-control" id="ocio" ng-model="ocio" capitalize maxlength="250" ng-disabled="des_antecedentes"></textarea>
+	            </div>
+	        </div>
+        </div>
+
+        <div id="botones">
+            <div id="boton_ligar_ante">
+                <div class="b-act-save">
+                    <button type="button" class="b-general der {{color_secc}} btn btn-default" ng-click="ligar_antecedentes()" ng-disabled="ligarAntecedentes">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="separa"></div>
+    </div>
+</div>

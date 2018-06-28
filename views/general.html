@@ -1,0 +1,311 @@
+<div class="container" ng-controller="generalController" >
+
+	<div id="form_datos_generales" ng-init="botones()">
+
+		<div id="instrucciones_general">
+			<h2 class="{{c_letra}} datos_head">DATOS PERSONALES</h2>
+                                              
+	        <p>
+	            En ésta sección, se introducirá la información personal del usuario. Por favor lea cuidadosamente cada una de las preguntas, así mismo llene todos los datos requeridos.<br><br>
+	            Los campos marcados con (<span class="asterisco">*</span>) son obligatorios.
+	        </p>
+		</div>
+        
+        <div id="servicio">
+
+            <div id="form_entero">
+                <div class="izquierda">
+                    <label class="completo">¿Cómo se enteró del servicio?<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha" id="se_entero_div">
+                    <input type="text" class="completo form-control" id="se_entero" ng-model="se_entero" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+                                                        
+            <div id="form_referencia">
+                <div class="izquierda">
+                    <label class="completo">Referido por:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="referencia" ng-model="referenciado" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+            
+            <div id="form_motivo">
+                <div class="izquierda">
+                    <label class="completo">Motivo de la consulta:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="motivo_c" ng-model="motivo_c" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+        </div>
+
+                            
+		<div id="info_general">
+
+            <div class="separa"></div>
+            <div id="form_fecha">
+
+                <div class="izquierda">
+                    <label class="completo">Fecha:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="fecha_reg" ng-model="fecha_reg" ng-disabled="disabled_fecha_reg">
+                </div>
+
+            </div>
+                                
+            <div id="form_nombre">
+                <div class="izquierda">
+                    <label class="completo">Nombre completo:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="nombre_com" ng-model="nombre_com" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_appat">
+                <div class="izquierda">
+                    <label class="completo">Apellido paterno:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="ap_paterno" ng-model="ap_paterno" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_apmat">
+                <div class="izquierda">
+                    <label class="completo">Apellido materno:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="ap_materno" ng-model="ap_materno" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_rfc">
+                <div class="izquierda">
+                    <label class="completo">RFC:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="rfc" ng-model="rfc" capitalize ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_genero" ng-init="init_genero()">
+                <div class="izquierda">
+                    <label class="completo">Género:<span class="asterisco">*</span></label>
+                </div>
+                
+                <div class="derecha">
+                    <select id="genero" 
+                            class="form-control completo" 
+                            ng-model="genero" 
+                            ng-options="genero.ID as genero.valor for genero in genero_options" 
+                            ng-disabled="des_general"
+                            capitalize>
+                            <option class="option" value="">-- SELECCIONE --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="form_civil" ng-init="init_civil()">
+                <div class="izquierda">
+                    <label class="completo">Estado civil:<span class="asterisco">*</span></label>
+                </div>
+                <div class="derecha">
+                    <select id="civil" 
+                            class="form-control completo"
+                            ng-model="civil" 
+                            ng-options="civil.ID as civil.valor for civil in civil_options"
+                            ng-disabled="des_general"
+                            capitalize>
+                        <option class="option" value="">-- SELECCIONE --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="form_hijos">
+                <div class="izquierda">
+                    <label class="completo">No. de hijos:</label>
+                </div>
+                <div class="derecha">
+                    <input type="text" class="completo form-control" id="hijos" ng-model="hijos" ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_nacimiento">
+                <div class="izquierda">
+                    <label class="completo">Fecha de nacimiento:<span class="asterisco">*</span></label>
+                </div>
+                <div class="derecha">
+                    <input type="text" class="completo form-control datepicker" id="nacimiento" ng-model="nacimiento" placeholder="AAAA-MM-DD" ng-disabled="des_general">
+                </div>
+            </div>
+
+            <div id="form_escolar" ng-init="init_escolar()">
+                <div class="izquierda">
+                    <label class="completo">Escolaridad:<span class="asterisco">*</span></label>
+                </div>
+            <div class="derecha">
+                <select id="escolar" 
+                        class="form-control completo" 
+                        ng-model="escolar" 
+                        ng-options="escolar.ID as escolar.valor for escolar in escolar_options"
+                        ng-disabled="des_general"
+                        capitalize>
+                    <option class="option" value="">-- SELECCIONE --</option>
+                </select>
+            </div>
+
+            <div id="info_contacto">
+                <div class="separa"></div>
+                <div id="form_telefono">
+                    <div class="izquierda">
+                        <label class="completo">Teléfono:<span class="asterisco">*</span></label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="telefono" ng-model="telefono" ng-disabled="des_general">
+                    </div>
+                </div>
+                                
+                <div id="form_t_oficina">
+                    <div class="izquierda">
+                        <label class="completo">Teléfono oficina:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="tel_oficina" ng-model="tel_oficina" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_t_celular">
+                    <div class="izquierda">
+                        <label class="completo">Teléfono celular:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="tel_celular" ng-model="tel_celular" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_email">
+                    <div class="izquierda">
+                        <label class="completo">E-mail:<span class="asterisco">*</span></label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="email" ng-model="email" capitalize ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_conf_email">
+                    <div class="izquierda">
+                        <label class="completo">Confirma e-mail:<span class="asterisco">*</span></label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="conf_email" ng-model="conf_email" capitalize ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_ad_email">
+                    <div class="izquierda">
+                        <label class="completo">E-mail adicional:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="ad_email" ng-model="ad_email" capitalize ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_conf_ad_email">
+                    <div class="izquierda">
+                        <label class="completo">Confirma e-mail adicional:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="conf_ad_email" ng-model="conf_ad_email" capitalize ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_pais">
+                    <div class="separa"></div>
+                    <div class="izquierda">
+                        <label class="completo">País:<span class="asterisco">*</span></label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="pais" ng-model="pais" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_direccion">
+                    <div class="izquierda">
+                        <label class="completo">Dirección:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="direccion" capitalize ng-model="direccion" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_cp">
+                    <div class="izquierda">
+                        <label class="completo">C.P.:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="cp" ng-model="cp" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_estado">
+                    <div class="izquierda">
+                        <label class="completo">Estado:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" capitalize id="estado" ng-model="estado" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_delegacion">
+                    <div class="izquierda">
+                            <label class="completo">Delegación:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="delegacion" capitalize ng-model="delegacion" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_municipio">
+                    <div class="izquierda">
+                            <label class="completo">Municipio:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="name_municipio" capitalize ng-model="name_municipio" ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="form_colonia">
+                    <div class="izquierda">
+                        <label class="completo">Colonia:</label>
+                    </div>
+                    <div class="derecha">
+                        <input type="text" class="completo form-control" id="colonia" capitalize ng-model="colonia" capitalize ng-disabled="des_general">
+                    </div>
+                </div>
+
+                <div id="botones">
+                    <div id="boton_ligar">
+                        <div class="b-act-save">
+                            <button type="button" ng-click="ligar_general()" ng-disabled="ligarGenerales" class="b-general der {{color_secc}} btn btn-default">
+                                <span class="glyphicon glyphicon-floppy-disk c-blanco" aria-hidden="true"></span> Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="separa"></div>
+            </div>
+        </div>
+    </div>
+</div>
